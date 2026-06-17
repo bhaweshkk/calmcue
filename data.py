@@ -1,22 +1,3 @@
-# data.py
-# -----------------------------------------------------------------------------
-# This file stores ALL the content CalmCue uses to respond to the user.
-# Everything is kept as simple Python dictionaries (no database needed).
-#
-# Each emotion category has:
-#   - a list of keywords used to detect it
-#   - a comforting message
-#   - a short breathing/grounding exercise
-#   - one small, practical next action
-#
-# Beginner note: dictionaries in Python are just labeled storage boxes.
-# Example: EMOTION_DATA["anxiety"]["message"] gives you the comforting
-# message stored for the "anxiety" category.
-# -----------------------------------------------------------------------------
-
-# Keywords used to detect each emotional state.
-# We keep these lowercase because we will also lowercase the user's input
-# before checking, so "Anxious" and "anxious" both match.
 EMOTION_KEYWORDS = {
     "anxiety": [
         "anxious", "anxiety", "nervous", "panic", "worried", "worry",
@@ -44,10 +25,6 @@ EMOTION_KEYWORDS = {
         "do not know what to do", "unclear", "foggy"
     ],
 }
-
-# Phrases that indicate a possible crisis. If any of these appear in the
-# user's text, CalmCue must NOT show a normal supportive response.
-# Instead, app.py will show an urgent safety message (see helpers.py).
 CRISIS_KEYWORDS = [
     "want to die",
     "want to kill myself",
@@ -62,8 +39,6 @@ CRISIS_KEYWORDS = [
     "suicide",
     "suicidal",
 ]
-
-# Main content shown for each emotion category.
 EMOTION_DATA = {
     "anxiety": {
         "label": "Anxiety",
@@ -150,7 +125,6 @@ EMOTION_DATA = {
             "No need to make it neat."
         ),
     },
-    # Fallback used when no keyword matches anything above.
     "fallback": {
         "label": "General Support",
         "message": (
@@ -166,10 +140,6 @@ EMOTION_DATA = {
         ),
     },
 }
-
-# Message shown when crisis-related text is detected.
-# Important: this is placeholder helpline text. Replace with real local
-# helpline numbers before using this app for real support situations.
 CRISIS_RESPONSE = {
     "label": "Urgent Support Needed",
     "message": (
